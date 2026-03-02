@@ -291,3 +291,47 @@ td {
   border-bottom: 1px solid #2a1a3a;
   text-align: right;
 }
+/* تنسيق قسم الخريطة */
+.bracket-section {
+  margin-top: 50px;
+  width: 100%;
+  overflow-x: auto; /* للسماح بالتمرير إذا كانت الخريطة كبيرة */
+}
+
+.bracket-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  min-width: 600px;
+}
+
+.match-card {
+  background: rgba(13, 6, 26, 0.8);
+  border: 1px solid var(--gold-legend);
+  border-radius: 4px;
+  padding: 10px;
+  width: 180px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 10px rgba(188, 140, 242, 0.2);
+}
+
+.match-card span {
+  display: block;
+  padding: 5px;
+  font-size: 0.9rem;
+}
+
+.vs-text {
+  color: var(--purple-bright);
+  font-weight: bold;
+  font-size: 0.7rem;
+  margin: 5px 0;
+}
+
+/* إضافة تأثير النيون للخريطة */
+.match-card:hover {
+  border-color: var(--purple-bright);
+  box-shadow: 0 0 15px var(--purple-bright);
+}

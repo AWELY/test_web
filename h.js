@@ -94,3 +94,25 @@ function generateBracket(count) {
     display.appendChild(match);
   }
 }
+function generateBracket(teams) {
+  const section = document.getElementById("bracketSection");
+  const display = document.getElementById("bracketDisplay");
+
+  section.style.display = "block";
+  display.innerHTML = ""; // مسح الخريطة القديمة
+
+  // لنفترض أننا سنقوم بعمل مواجهات ثنائية
+  for (let i = 0; i < teams.length; i += 2) {
+    const team1Name = `Team ${i + 1}`;
+    const team2Name = teams[i + 1] ? `Team ${i + 2}` : "انتظار (BYE)";
+
+    const matchHTML = `
+            <div class="match-card">
+                <span>${team1Name}</span>
+                <div class="vs-text">VS</div>
+                <span>${team2Name}</span>
+            </div>
+        `;
+    display.innerHTML += matchHTML;
+  }
+}
