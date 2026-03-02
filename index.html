@@ -1,47 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ملفي الشخصي</title>
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
+    <title>LCL Tournament Manager</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <video autoplay loop muted playsinline class="background-clip">
-      <source src="imgs/video_2025-06-02_23-06-51.mp4" type="video/mp4" />
-    </video>
-    <div class="container">
+    <div class="overlay"></div>
+
+    <div class="main-wrapper">
       <header>
-        <a href="imgs/CV'old.pdf" download class="logo">سيرتي الذاتيه</a>
-        <nav>
-          <a href="index.html">الصفحة الرئيسية</a>
-          <a href="about.html">من أكون</a>
-          <a href="textme.html">راسلني</a>
-          <a href="myworks.html">هواياتي وأعمالي</a>
-        </nav>
+        <h1 class="main-title">LCL <span>CHAMPIONSHIP</span></h1>
       </header>
 
-      <div class="content">
-        <h2>أهلاً بك</h2>
-        <h1>أنا عبدالمهيمن جمعه عويلي</h1>
-        <p>
-          مرحباً بك في موقعي الشخصي. أنا مهتم بتطوير الذات والتعلم المستمر. هذا
-          الموقع يعرض معلومات عني، هواياتي، وأهدافي في الحياة.
-        </p>
+      <div class="content-grid">
+        <section class="card registration-section">
+          <h3 class="card-title">إضافة محارب جديد</h3>
+          <form id="registrationForm">
+            <div class="input-group">
+              <label>Riot ID</label>
+              <input type="text" id="riotId" placeholder="Name #TAG" required />
+            </div>
+
+            <div class="input-group">
+              <label>التصنيف (Rank)</label>
+              <select id="rank">
+                <option value="1">Iron</option>
+                <option value="2">Bronze</option>
+                <option value="3">Silver</option>
+                <option value="4">Gold</option>
+                <option value="5">Platinum</option>
+                <option value="6">Emerald</option>
+                <option value="7">Diamond</option>
+                <option value="10">Master+</option>
+              </select>
+            </div>
+
+            <div class="roles-grid">
+              <div class="input-group">
+                <label>المركز الأساسي</label>
+                <select id="mainRole">
+                  <option value="TOP">TOP</option>
+                  <option value="JNG">JNG</option>
+                  <option value="MID">MID</option>
+                  <option value="ADC">ADC</option>
+                  <option value="SUP">SUP</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label>المركز الثاني</label>
+                <select id="subRole">
+                  <option value="TOP">TOP</option>
+                  <option value="JNG">JNG</option>
+                  <option value="MID">MID</option>
+                  <option value="ADC">ADC</option>
+                  <option value="SUP">SUP</option>
+                  <option value="Fill">Fill</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn-glow">انضم للقائمة</button>
+          </form>
+        </section>
+
+        <section class="card list-section">
+          <h3 class="card-title">
+            المقاتلون المسجلون (<span id="playerCount">0</span>)
+          </h3>
+          <div class="table-scroll">
+            <table id="playersTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>الرانك</th>
+                  <th>المراكز</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <button id="balanceBtn" class="btn-gold">
+            بدء الموازنة والبطولة
+          </button>
+        </section>
       </div>
+
+      <div id="teamsResult" class="teams-grid"></div>
+
+      <section
+        id="bracketSection"
+        class="card bracket-section"
+        style="display: none"
+      >
+        <h3 class="card-title">خريطة المواجهات</h3>
+        <div class="bracket-container" id="bracketDisplay"></div>
+      </section>
     </div>
+
+    <script src="h.js"></script>
   </body>
 </html>
